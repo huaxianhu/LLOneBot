@@ -38,7 +38,7 @@ jobs:
       - name: Compress
         run: |
           sudo apt install zip -y
-          zip -r QQ整合包_Windows_x64.zip QQNT
+          zip -r LLOneBot_QQ_Windows_x64.zip QQNT
           cd ./dist/
           zip -r ../LLOneBot.zip ./*
 
@@ -49,7 +49,7 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: 'LLOneBot.zip, QQ整合包_Windows_x64.zip'
+          artifacts: 'LLOneBot.zip, LLOneBot_QQ_Windows_x64.zip.zip'
           draft: true
           token: ${{ secrets.RELEASE_TOKEN }}
           name: LLOneBot v${{ steps.get-version.outputs.VERSION }}
