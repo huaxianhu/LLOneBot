@@ -13,7 +13,8 @@ jobs:
         run: Invoke-WebRequest -Uri "https://dldir1.qq.com/qqfile/qq/QQNT/Windows/QQ_9.9.16_241112_x64_01.exe" -OutFile NTQQ.exe
 
       - name: 静默安装 QQ
-        run: .\NTQQ.exe /S
+        shell: pwsh
+        run: Start-Process .\NTQQ.exe -ArgumentList "/S" -Verb RunAs  # 以管理员身份运行
       - name: 验证安装路径
         shell: pwsh
         run: |
