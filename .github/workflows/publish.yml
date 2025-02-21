@@ -1,0 +1,51 @@
+name: Integrate NTQQ
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependenies
+        run: |
+          export ELECTRON_SKIP_BINARY_DOWNLOAD=1
+          npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Downlaod QQ 29456
+        run: curl -o QQNT整合包_Windows_x64.zip "https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win-29456/win-x64-29456.zip"
+      - name: Extract QQ 29456
+        run: unzip QQNT整合包_Windows_x64.zip -d QQNT整合包_Windows_x64 & rm QQNT整合包_Windows_x64.zip
+      - name: Copy LLOneBot to QQ 29456 and rename to LLOneBot
+        run: cp -r dist/ QQNT整合包_Windows_x64/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/LLOneBot
+
+      - name: Compress
+        run: |
+          sudo apt install zip -y
+          cd ./dist/
+          zip -r ../LLOneBot.zip ./*
+          cd ..
+          zip -r QQ整合包_Windows_x64.zip QQNT整合包_Windows_x64
+
+      - name: Extract version from tag
+        id: get-version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'LLOneBot.zip, QQ整合包_Windows_x64.zip'
+          draft: true
+          token: ${{ secrets.RELEASE_TOKEN }}
+          name: LLOneBot v${{ steps.get-version.outputs.VERSION }}
