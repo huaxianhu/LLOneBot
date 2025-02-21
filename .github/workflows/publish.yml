@@ -35,10 +35,9 @@ jobs:
       - name: Compress
         run: |
           sudo apt install zip -y
+          zip -r QQ整合包_Windows_x64.zip QQNT整合包_Windows_x64
           cd ./dist/
           zip -r ../LLOneBot.zip ./*
-          cd ..
-          zip -r QQ整合包_Windows_x64.zip QQNT整合包_Windows_x64
 
       - name: Extract version from tag
         id: get-version
