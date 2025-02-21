@@ -23,10 +23,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Downlaod QQ 29456
+      - name: Download QQ 29456
         run: curl -o QQNT整合包_Windows_x64.zip "https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win-29456/win-x64-29456.zip"
       - name: Extract QQ 29456
-        run: unzip QQNT整合包_Windows_x64.zip -d QQNT整合包_Windows_x64 & rm QQNT整合包_Windows_x64.zip
+        run: |
+          ls ./
+          unzip QQNT整合包_Windows_x64.zip -d QQNT整合包_Windows_x64 & rm QQNT整合包_Windows_x64.zip
       - name: Copy LLOneBot to QQ 29456 and rename to LLOneBot
         run: |
           mkdir QQNT整合包_Windows_x64/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/
