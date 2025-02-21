@@ -28,7 +28,7 @@ jobs:
       - name: Extract QQ 29456
         run: |
           ls ./
-          unzip QQNT整合包_Windows_x64.zip -d QQNT整合包_Windows_x64 & rm QQNT整合包_Windows_x64.zip
+          unzip QQNT整合包_Windows_x64.zip -d QQNT整合包_Windows_x64 && rm QQNT整合包_Windows_x64.zip
       - name: Copy LLOneBot to QQ 29456 and rename to LLOneBot
         run: |
           mkdir QQNT整合包_Windows_x64/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/
