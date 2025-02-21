@@ -49,7 +49,7 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: 'LLOneBot.zip, LLOneBot_QQ_Windows_x64.zip.zip'
+          artifacts: 'LLOneBot.zip, LLOneBot_QQ_Windows_x64.zip'
           draft: true
           token: ${{ secrets.RELEASE_TOKEN }}
           name: LLOneBot v${{ steps.get-version.outputs.VERSION }}
