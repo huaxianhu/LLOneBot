@@ -6,12 +6,26 @@ on:
 jobs:
   build-and-release:
     runs-on: windows-latest
+    permissions:
+      contents: write
     steps:
       - name: 下载 NTQQ 29456
         run: Invoke-WebRequest -Uri "https://dldir1.qq.com/qqfile/qq/QQNT/Windows/QQ_9.9.16_241112_x64_01.exe" -OutFile NTQQ.exe
 
-      - name: 静默安装
-        run: .\NTQQ.exe /S
+      - name: 静默安装 QQ
+        run: .\NTQQ.exe /S /LOG=install.log
+      - name: 输出安装日志
+        run: Get-Content install.log
+      - name: 验证安装路径
+        shell: pwsh
+        run: |
+          $path = "C:\Program Files\Tencent\QQNT\versions\9.9.16-29456"
+          if (Test-Path $path) {
+          Write-Output "路径存在"
+          Get-ChildItem $path -Recurse
+          } else {
+          Write-Error "路径不存在"
+          }
 
       - name: 创建 LiteloaderQQNT 启动脚本
         shell: pwsh
