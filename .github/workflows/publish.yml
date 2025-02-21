@@ -25,7 +25,7 @@ jobs:
 
       - name: Download QQ 29456
         run: |
-          curl -H "Authorization: Bearer ${{ secrets.RELEASE_TOKEN }}" -o QQNT整合包_Windows_x64.zip https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win-29456/win-x64-29456.zip
+          wget -o QQNT整合包_Windows_x64.zip https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win-29456/win-x64-29456.zip
       - name: Extract QQ 29456
         run: |
           ls -lh
