@@ -17,7 +17,7 @@ jobs:
       - name: 验证安装路径
         shell: pwsh
         run: |
-          $path = "C:\Program Files\Tencent\QQNT\versions\9.9.16-29456"
+          $path = "C:\Program Files\Tencent\QQNT\"
           if (Test-Path $path) {
           Write-Output "路径存在"
           Get-ChildItem $path -Recurse
