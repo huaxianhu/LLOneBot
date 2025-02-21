@@ -27,6 +27,7 @@ jobs:
         run: curl -o QQNT整合包_Windows_x64.zip "https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win-29456/win-x64-29456.zip"
       - name: Extract QQ 29456
         run: |
+          ls -lh
           unzip QQNT整合包_Windows_x64.zip
           mv QQNT 整合包_Windows_x64
           rm QQNT整合包_Windows_x64.zip
