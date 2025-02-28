@@ -32,10 +32,10 @@ jobs:
           mv QQNT QQNT-27597
       - name: Copy LLOneBot to QQ
         run: |
-          ll QQNT-27597/
-          ll QQNT-27597/resources/
-          ll QQNT-27597/resources/app
-          ll QQNT-27597/resources/app/app_launcher
+          ls QQNT-27597/
+          ls QQNT-27597/resources/
+          ls QQNT-27597/resources/app
+          ls QQNT-27597/resources/app/app_launcher
           cp -r dist/ QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/
           mv QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/dist QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/LLOneBot
 
