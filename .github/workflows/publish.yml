@@ -21,9 +21,7 @@ jobs:
           npm install
 
       - name: Build
-        run: |
-          npm run build
-
+        run: npm run build
       - name: Download QQ
         run: |
 #          wget https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win/win-x64-29456.zip
