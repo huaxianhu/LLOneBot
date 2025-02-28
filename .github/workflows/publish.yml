@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependenies
+      - name: Install dependencies
         run: |
           export ELECTRON_SKIP_BINARY_DOWNLOAD=1
           npm install
@@ -39,7 +39,7 @@ jobs:
         run: |
 #          cp -r dist/ QQNT-29456/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/
 #          mv QQNT-29456/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/dist QQNT/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/LLOneBot
-          cp -r QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/ QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/
+          cp -r dist/ QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/
           mv QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/dist QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/LLOneBot
 
       - name: Compress
