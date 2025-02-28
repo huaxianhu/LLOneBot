@@ -21,7 +21,8 @@ jobs:
           npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
 
       - name: Download QQ
         run: |
