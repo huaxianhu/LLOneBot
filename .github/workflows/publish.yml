@@ -24,27 +24,20 @@ jobs:
         run: npm run build
       - name: Download QQ
         run: |
-#          wget https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win/win-x64-29456.zip
           wget https://github.com/linyuchen/LiteloaderQQNT-Integration/releases/download/win/win-x64-27597.zip
       - name: Extract QQ
         run: |
-#          unzip win-x64-29456.zip
-#          rm win-x64-29456.zip
-#          mv QQNT QQNT-29456
           unzip win-x64-27597.zip
           rm win-x64-27597.zip
           mv QQNT QQNT-27597
       - name: Copy LLOneBot to QQ
         run: |
-#          cp -r dist/ QQNT-29456/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/
-#          mv QQNT-29456/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/dist QQNT/versions/9.9.16-29456/resources/app/app_launcher/LiteLoaderQQNT/plugins/LLOneBot
           cp -r dist/ QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/
           mv QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/dist QQNT-27597/resources/app/app_launcher/LiteLoaderQQNT/plugins/LLOneBot
 
       - name: Compress
         run: |
           sudo apt install zip -y
-#          zip -r LLOneBot_QQ29456_Windows_x64.zip QQNT-29456
           zip -r LLOneBot_QQ27597_Windows_x64.zip QQNT-27597
           cd ./dist/
           zip -r ../LLOneBot.zip ./*
